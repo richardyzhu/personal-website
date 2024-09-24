@@ -5,14 +5,19 @@ import LinksSection from "@/src/sections/LinksSection";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-gradient-to-tr from-gray-900 via-gray-800 to-black text-gray-300">
-      {/* <header>
-    <NavBar />
-  </header> */}
+    <div
+      id="home"
+      className="relative min-h-screen p-8 pb-20 font-[family-name:var(--font-geist-sans)] bg-gradient-to-tr from-gray-900 via-gray-800 to-black text-gray-300"
+    >
+      {/* Navbar */}
       <link
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         rel="stylesheet"
       />
+      <header>
+        <NavBar />
+      </header>
+
       <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full">
         <section className="flex items-center justify-start h-screen p-10">
           <div className="text-left">
@@ -34,15 +39,13 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="w-full flex flex-col gap-16 p-10 bg-gray-800 rounded-xl shadow-md">
+        <section className="w-full flex flex-col gap-16 p-10" id="experience">
           <ExperienceSection />
+        </section>
+        <section className="w-full flex flex-col gap-16 p-10" id="projects">
           <ProjectsSection />
         </section>
       </main>
-
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center text-sm text-gray-400 bg-gray-900 w-full p-6 rounded-xl shadow-md">
-        © 2024 Richard Zhu. All rights reserved.
-      </footer>
     </div>
   );
 }
