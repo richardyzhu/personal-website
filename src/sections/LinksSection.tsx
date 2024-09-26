@@ -1,6 +1,6 @@
 const LinksSection: React.FC = () => {
   return (
-    <div className="flex gap-8">
+    <div className="flex gap-8 items-center">
       <a
         href="https://github.com/richardyzhu"
         target="_blank"
@@ -22,6 +22,11 @@ const LinksSection: React.FC = () => {
         className="w-16 h-16 bg-gray-500 hover:bg-gray-400 text-white rounded-full flex items-center justify-center shadow-lg transition duration-300"
       >
         <i className="fas fa-envelope text-3xl"></i> {/* Email Icon */}
+      </a>
+      <a href="your-resume-link.pdf" target="_blank" rel="noopener noreferrer">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Resume
+        </button>
       </a>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import ExperienceCard from "../components/ExperienceCard";
+import { FaReact, FaAws, FaNode } from "react-icons/fa"; // Example icons
 
 const ExperienceSection: React.FC = () => {
   const experiences = [
@@ -13,6 +14,11 @@ const ExperienceSection: React.FC = () => {
         "Wrote a Selenium-based Yellow Pages scraper to improve customer outreach, surpassing a previous scraper's coverage by 40% and reducing its runtime by 50%.",
       ],
       location: "Toronto, Canada",
+      chips: [
+        <span className="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <FaReact className="mr-2" /> React
+        </span>,
+      ],
     },
     {
       company: "Gelenk Networks",
@@ -24,6 +30,11 @@ const ExperienceSection: React.FC = () => {
         "Led the development of an AI Travel Planner, automatically generating and deploying itineraries as distinct webpages with a UUID-based URL, resulting in a 20% improvement in SEO engagement.",
       ],
       location: "Markham, Canada",
+      chips: [
+        <span className="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <FaReact className="mr-2" /> React
+        </span>,
+      ],
     },
   ];
 

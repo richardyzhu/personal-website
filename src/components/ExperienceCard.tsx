@@ -1,4 +1,4 @@
-import { FaReact, FaAws, FaNode } from "react-icons/fa"; // Example icons
+import React, { ReactNode } from "react";
 
 interface ExperienceCardProps {
   company: string;
@@ -6,6 +6,7 @@ interface ExperienceCardProps {
   date: string;
   location: string;
   bulletPoints: string[];
+  chips: ReactNode[];
 }
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({
@@ -14,6 +15,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   date,
   location,
   bulletPoints,
+  chips,
 }) => {
   const renderBulletPoint = (point: string) => {
     const parts = point.split(/(\*[^*]+\*)/g);
@@ -38,7 +40,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         <div className="text-sm text-gray-400">{date}</div>
       </div>
       <div className="text-sm text-gray-400 italic mb-4">{location}</div>
-      <ul className="list-disc list-inside space-y-2 pl-4 text-gray-300 mb-4">
+      <ul className="list-disc list-outside space-y-2 pl-6 text-gray-300 mb-4">
         {bulletPoints.map((item, index) => (
           <li key={index} className="text-base leading-6">
             {renderBulletPoint(item)}
@@ -46,15 +48,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         ))}
       </ul>
       <div className="flex flex-wrap gap-3 justify-start items-center mt-4">
-        <span className="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
-          <FaReact className="mr-2" /> React
-        </span>
-        <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
-          <FaAws className="mr-2" /> AWS
-        </span>
-        <span className="bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
-          <FaNode className="mr-2" /> Node.js
-        </span>
+        {chips && chips.map((chip, index) => <div key={index}>{chip}</div>)}
       </div>
     </div>
   );
