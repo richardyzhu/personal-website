@@ -17,6 +17,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   bulletPoints,
   chips,
 }) => {
+  // TODO: move this to a utils file
   const renderBulletPoint = (point: string) => {
     const parts = point.split(/(\*[^*]+\*)/g);
     return parts.map((part, index) => {
@@ -32,6 +33,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   };
 
   return (
+    // TODO: put the logo somewhere ?
     <div className="bg-gradient-to-b from-gray-800 to-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out border border-gray-700">
       <div className="flex justify-between items-center mb-2">
         <div className="text-xl font-semibold text-white">

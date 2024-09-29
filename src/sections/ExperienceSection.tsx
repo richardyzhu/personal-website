@@ -36,9 +36,9 @@ const ExperienceSection: React.FC = () => {
       date: "May 2023 - Sep 2023",
       role: "Software Developer Intern",
       bulletPoints: [
-        "Built an interactive chat application using React, Node, and Socket.IO, integrating with existing web interface to facilitate real-time communication and enhance user engagement.",
-        "Developed multiple full-stack tools with Vue and Node, constructing RESTful APIs, integrating CouchDB for greater flexibility in data management, and utilizing Vuetify to create user-friendly frontends.",
-        "Led the development of an AI Travel Planner, automatically generating and deploying itineraries as distinct webpages with a UUID-based URL, resulting in a 20% improvement in SEO engagement.",
+        "Built an interactive chat application using *React*, *Node*, and *Socket.IO*, integrating with existing web interface to facilitate real-time communication and enhance user engagement.",
+        "Developed multiple full-stack tools with *Vue* and *Node*, constructing *RESTful APIs*, integrating *CouchDB* for greater flexibility in data management, and utilizing *Vuetify* to create user-friendly frontends.",
+        "Led the development of an AI Travel Planner, automatically generating and deploying itineraries as distinct webpages with a UUID-based URL, resulting in a *20% improvement* in SEO engagement.",
       ],
       location: "Markham, Canada",
       chips: [

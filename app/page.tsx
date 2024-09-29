@@ -9,7 +9,7 @@ export default function Home() {
       id="home"
       className="relative min-h-screen p-8 pb-20 font-[family-name:var(--font-geist-sans)] bg-gradient-to-tr from-gray-900 via-gray-800 to-black text-gray-300"
     >
-      {/* Navbar */}
+      // TODO: add animations ? portrait ? idk.... typing animation probably
       <link
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         rel="stylesheet"
@@ -17,7 +17,6 @@ export default function Home() {
       <header>
         <NavBar />
       </header>
-
       <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full">
         <section className="flex items-center justify-start h-screen p-10">
           <div className="text-left">

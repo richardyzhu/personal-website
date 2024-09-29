@@ -10,7 +10,7 @@ const LinksSection: React.FC = () => {
         <i className="fab fa-github text-3xl"></i> {/* GitHub Icon */}
       </a>
       <a
-        href="https://linkedin.com/in/yourusername"
+        href="https://linkedin.com/in/richard-yunqi-zhu"
         target="_blank"
         rel="noopener noreferrer"
         className="w-16 h-16 bg-blue-600 hover:bg-blue-500 text-white rounded-full flex items-center justify-center shadow-lg transition duration-300"
@@ -24,8 +24,8 @@ const LinksSection: React.FC = () => {
         <i className="fas fa-envelope text-3xl"></i> {/* Email Icon */}
       </a>
       <a href="your-resume-link.pdf" target="_blank" rel="noopener noreferrer">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Resume
+        <button className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-full flex items-center justify-center shadow-lg transition duration-300">
+          <span className="text-lg">Resume</span>
         </button>
       </a>
     </div>

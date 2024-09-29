@@ -10,7 +10,7 @@ interface ProjectCardProps {
   bulletPoints: string[];
   chips: ReactNode[];
   awards?: string[];
-  link: string;
+  link?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
