@@ -1,1 +1,1 @@
-check it out [here](richardyzhu.vercel.app)!
+check it out [here](https://richardyzhu.vercel.app/)!
