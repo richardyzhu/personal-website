@@ -9,7 +9,7 @@ export default function Home() {
       id="home"
       className="relative min-h-screen p-8 pb-20 font-[family-name:var(--font-geist-sans)] bg-gradient-to-tr from-gray-900 via-gray-800 to-black text-gray-300"
     >
-      // TODO: add animations ? portrait ? idk.... typing animation probably
+      {/* TODO: add animations ? portrait ? idk.... typing animation probably */}
       <link
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         rel="stylesheet"
