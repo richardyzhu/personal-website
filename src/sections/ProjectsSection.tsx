@@ -1,13 +1,14 @@
 // TODO: addd more projects and a tiny project card for the smaller projects
 
 import ProjectCard from "../components/ProjectCard";
+import SmallProjectCard from "../components/SmallProjectCard"; // Import the new component
 import { RiNextjsFill } from "react-icons/ri";
-import { SiTensorflow, SiDjango } from "react-icons/si";
+import { SiTensorflow, SiDjango, SiMongodb } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import { IoLogoJavascript } from "react-icons/io";
 
 const ProjectsSection: React.FC = () => {
-  const projects = [
+  const bigProjects = [
     {
       title: "MotiSpectra",
       image: "/images/motispectra.png",
@@ -64,12 +65,26 @@ const ProjectsSection: React.FC = () => {
       link: "https://devpost.com/software/bob-gj5h29",
     },
     {
-      title: "Coming Soon...",
-      image: "/images/wip.png",
-      bulletPoints: [],
-      chips: [],
+      title: "QuizCaster",
+      image: "/images/quizcaster.png",
+      bulletPoints: [
+        "Created a dynamic web application with *Next.js* and OpenAI APIs, capable of generating multiple-choice questions from various content sources, including PDFs, Markdown files, websites, and YouTube videos.",
+        "Trained a *Naïve-Bayes* machine learning model on *7.8 million* lines of text from Wikipedia to format text.",
+        "Implemented *caching* by storing generated quizzes, each assigned a unique UUID, in a *MongoDB* database.",
+      ],
+      chips: [
+        <span className="bg-black text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <RiNextjsFill className="mr-2" /> Next.js
+        </span>,
+        <span className="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <SiMongodb className="mr-2" /> MongoDB
+        </span>,
+      ],
+      link: "https://devpost.com/software/quizcaster",
     },
   ];
+
+  const smallProjects = [];
 
   return (
     <section className="w-full bg-gradient-to-b from-gray-900 to-gray-800 py-16 rounded-2xl">
@@ -77,9 +92,16 @@ const ProjectsSection: React.FC = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
           Projects
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {bigProjects.map((project, index) => (
             <ProjectCard key={index} {...project} />
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {smallProjects.map((project, index) => (
+            <SmallProjectCard key={index} {...project} />
           ))}
         </div>
       </div>
