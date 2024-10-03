@@ -23,7 +23,11 @@ const LinksSection: React.FC = () => {
       >
         <i className="fas fa-envelope text-3xl"></i> {/* Email Icon */}
       </a>
-      <a href="your-resume-link.pdf" target="_blank" rel="noopener noreferrer">
+      <a
+        href="/Richard_Zhu_Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <button className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-full flex items-center justify-center shadow-lg transition duration-300">
           <span className="text-lg">Resume</span>
         </button>
