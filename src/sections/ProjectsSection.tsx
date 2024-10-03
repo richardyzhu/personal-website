@@ -84,7 +84,7 @@ const ProjectsSection: React.FC = () => {
     },
   ];
 
-  const smallProjects = [];
+  // const smallProjects = [];
 
   return (
     <section className="w-full bg-gradient-to-b from-gray-900 to-gray-800 py-16 rounded-2xl">
@@ -99,11 +99,11 @@ const ProjectsSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {smallProjects.map((project, index) => (
             <SmallProjectCard key={index} {...project} />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
