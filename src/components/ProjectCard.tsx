@@ -1,6 +1,4 @@
 "use client";
-import Image from "next/image";
-import { FaReact } from "react-icons/fa"; // Example icon for a chip
 import React, { ReactNode } from "react";
 import { MdOpenInNew } from "react-icons/md";
 
