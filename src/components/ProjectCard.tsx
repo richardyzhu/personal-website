@@ -42,8 +42,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         />
       </div>
 
-      <div className="py-6 px-8 ">
-        <div className="flex justify-between items-center">
+      <div className="py-6 px-8">
+        <div className="flex justify-between items-center min-h-[70px]">
           <div className="flex flex-col">
             <h3 className="text-2xl font-bold text-white mb-1">{title}</h3>
             {awards && awards.length > 0 && (
