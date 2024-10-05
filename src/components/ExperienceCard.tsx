@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 interface ExperienceCardProps {
   company: string;
   role: string;
-  date: string;
+  date: string[];
   location: string;
   bulletPoints: string[];
   chips: ReactNode[];
@@ -39,7 +39,11 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         <div className="text-xl font-semibold text-white">
           {company} - <span className="text-blue-400">{role}</span>
         </div>
-        <div className="text-sm text-gray-400">{date}</div>
+        <div className="text-sm text-gray-400 hidden lg:block">
+          {date.map((item) => (
+            <div>{item}</div>
+          ))}
+        </div>
       </div>
       <div className="text-sm text-gray-400 italic mb-4">{location}</div>
       <ul className="list-disc list-outside space-y-2 pl-6 text-gray-300 mb-4">

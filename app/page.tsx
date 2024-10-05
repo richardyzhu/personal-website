@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div
       id="home"
-      className="relative min-h-screen p-8 pb-20 font-[family-name:var(--font-geist-sans)] bg-gradient-to-tr from-gray-900 via-gray-800 to-black text-gray-300"
+      className="relative min-h-screen sm:p-8 pb-20 font-[family-name:var(--font-geist-sans)] bg-gradient-to-tr from-gray-900 via-gray-800 to-black text-gray-300"
     >
       {/* TODO: add animations ? portrait ? idk.... typing animation probably */}
       <link
@@ -17,31 +17,39 @@ export default function Home() {
       <header>
         <NavBar />
       </header>
-      <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full">
-        <section className="flex items-center justify-start h-screen p-10">
-          <div className="text-left">
-            <h1 className="text-6xl font-bold text-white mb-4">
+      <main className="flex flex-col gap-12 sm:gap-16 row-start-2 items-center sm:items-start w-full">
+        <section className="flex flex-col sm:flex-row items-center justify-center sm:justify-start min-h-screen p-6 sm:p-10">
+          <div className="text-center sm:text-left">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-2 sm:mb-4">
               Hello, I'm <span className="text-blue-400">Richard Zhu</span>
             </h1>
-            <p className="text-2xl text-gray-300 mb-4">
+            <p className="text-md sm:text-xl md:text-2xl text-gray-300 mb-2 sm:mb-4">
               A third-year student at the{" "}
               <span className="text-yellow-400">University of Waterloo</span>{" "}
               studying <span className="text-green-400">CS/Stats</span>.
             </p>
-            <p className="text-xl text-gray-400">
+            <p className="text-sm sm:text-lg md:text-xl text-gray-400 mb-4">
               Previously at <span className="text-indigo-400">Jitto</span> and{" "}
               <span className="text-indigo-400">Gelenk Networks</span>.
             </p>
 
-            <div className="mt-12 flex flex-row gap-8">
+            <div className="mt-6 sm:mt-12 flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center sm:justify-start">
               <LinksSection />
             </div>
           </div>
         </section>
-        <section className="w-full flex flex-col gap-16 p-10" id="experience">
+
+        <section
+          className="w-full flex flex-col gap-10 sm:gap-16 p-6 sm:p-10"
+          id="experience"
+        >
           <ExperienceSection />
         </section>
-        <section className="w-full flex flex-col gap-16 p-10" id="projects">
+
+        <section
+          className="w-full flex flex-col gap-10 sm:gap-16 p-6 sm:p-10"
+          id="projects"
+        >
           <ProjectsSection />
         </section>
       </main>

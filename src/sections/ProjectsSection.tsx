@@ -87,9 +87,9 @@ const ProjectsSection: React.FC = () => {
   // const smallProjects = [];
 
   return (
-    <section className="w-full bg-gradient-to-b from-gray-900 to-gray-800 py-16 rounded-2xl">
+    <section className="w-full bg-gradient-to-b from-gray-900 to-gray-800 py-8 sm:py-16 rounded-2xl">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-12 text-center">
           Projects
         </h2>
 

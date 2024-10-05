@@ -8,7 +8,7 @@ const ExperienceSection: React.FC = () => {
   const experiences = [
     {
       company: "Jitto",
-      date: "Jan 2024 - May 2024 ⠀⠀ Sep 2024 - Dec 2024",
+      date: ["Jan 2024 - May 2024", "Sep 2024 - Dec 2024"],
       role: "Full Stack Software Engineering Intern",
       bulletPoints: [
         "Refactored AWS DynamoDB schema using Python, resulting in a *99% reduction* in monthly AWS costs while ensuring scalability through a transition from relational to non-relational structure.",
@@ -33,7 +33,7 @@ const ExperienceSection: React.FC = () => {
     },
     {
       company: "Gelenk Networks",
-      date: "May 2023 - Sep 2023",
+      date: ["May 2023 - Sep 2023"],
       role: "Software Developer Intern",
       bulletPoints: [
         "Built an interactive chat application using *React*, *Node*, and *Socket.IO*, integrating with existing web interface to facilitate real-time communication and enhance user engagement.",
@@ -62,9 +62,9 @@ const ExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-gradient-to-b from-gray-800 to-gray-900 py-12 rounded-2xl">
+    <section className="w-full bg-gradient-to-b from-gray-800 to-gray-900 py-8 sm:py-12 rounded-2xl">
       <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-12 text-center">
           Experience
         </h2>
         <div className="space-y-8">

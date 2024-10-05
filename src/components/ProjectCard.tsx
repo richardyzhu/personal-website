@@ -38,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <img
           src={image}
           alt={title}
-          className="w-full h-60 object-cover rounded-t-lg"
+          className="w-full h-60 object-cover rounded-t-lg hidden lg:block"
         />
       </div>
 
