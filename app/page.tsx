@@ -2,6 +2,7 @@ import ExperienceSection from "@/src/sections/ExperienceSection";
 import NavBar from "@/src/components/NavBar";
 import ProjectsSection from "@/src/sections/ProjectsSection";
 import LinksSection from "@/src/sections/LinksSection";
+import LandingSection from "@/src/sections/LandingSection";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
       </header>
       <main className="flex flex-col gap-12 sm:gap-16 row-start-2 items-center sm:items-start w-full">
         <section className="flex flex-col sm:flex-row items-center justify-center sm:justify-start min-h-screen p-6 sm:p-10">
-          <div className="text-center sm:text-left">
+          {/* <div className="text-center sm:text-left">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-2 sm:mb-4">
               Hello, I'm <span className="text-blue-400">Richard Zhu</span>
             </h1>
@@ -36,7 +37,8 @@ export default function Home() {
             <div className="mt-6 sm:mt-12 flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center sm:justify-start">
               <LinksSection />
             </div>
-          </div>
+          </div> */}
+          <LandingSection />
         </section>
 
         <section
