@@ -33,7 +33,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     });
   };
   return (
-    <div className="bg-gray-800 rounded-lg shadow-md border border-gray-700 overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-lg hover:scale-105">
+    <div className="bg-gray-800 rounded-lg shadow-md border border-gray-700 overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-lg hover:scale-105 flex flex-col">
       <div className="relative">
         <img
           src={image}
@@ -42,7 +42,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         />
       </div>
 
-      <div className="py-6 px-8">
+      <div className="py-6 px-8 flex-grow">
         <div className="flex justify-between items-center min-h-[70px]">
           <div className="flex flex-col">
             <h3 className="text-2xl font-bold text-white mb-1">{title}</h3>
@@ -71,10 +71,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </li>
           ))}
         </ul>
+      </div>
 
-        <div className="flex flex-wrap gap-3 justify-start items-center mt-4">
-          {chips && chips.map((chip, index) => <div key={index}>{chip}</div>)}
-        </div>
+      <div className="flex flex-wrap gap-3 justify-start items-center mt-4 px-8 pb-6">
+        {chips && chips.map((chip, index) => <div key={index}>{chip}</div>)}
       </div>
     </div>
   );
