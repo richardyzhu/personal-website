@@ -6,6 +6,14 @@ import { RiNextjsFill } from "react-icons/ri";
 import { SiTensorflow, SiDjango, SiMongodb } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import { IoLogoJavascript } from "react-icons/io";
+import { FaPython } from "react-icons/fa";
+import { SiMicrosoftazure } from "react-icons/si";
+import { SiCplusplus } from "react-icons/si";
+import { SiJupyter } from "react-icons/si";
+import { SiAppwrite } from "react-icons/si";
+import { FcScatterPlot } from "react-icons/fc";
+import { FaAws } from "react-icons/fa";
+import { SiTwilio } from "react-icons/si";
 
 const ProjectsSection: React.FC = () => {
   const bigProjects = [
@@ -84,7 +92,125 @@ const ProjectsSection: React.FC = () => {
     },
   ];
 
-  // const smallProjects = [];
+  const smallProjects = [
+    {
+      title: "GPT George",
+      image: "/images/gptgeorge.png",
+      bulletPoints: [
+        "Developed a *personalized AI voice assistant* using OpenAI.",
+        "Used *WhisperAI* and *Microsoft Azure* for *speech-to-text*, and *HumeAI* for emotion detection.",
+      ],
+      chips: [
+        <span className="bg-yellow-400 text-black text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <FaPython className="mr-2" /> Python
+        </span>,
+        <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <SiMicrosoftazure className="mr-2" /> Azure
+        </span>,
+      ],
+      link: "https://devpost.com/software/gpt-george",
+    },
+    {
+      title: "Chess",
+      image: "/images/chess.jpg",
+      bulletPoints: [
+        "Made chess in *C++* for an Object Oriented Programming course.",
+        "Leveraged techniques like safe pointers and exception handling.",
+      ],
+      chips: [
+        <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <SiCplusplus className="mr-2 text-blue-200" /> C++
+        </span>,
+      ],
+      link: "https://github.com/sammyyyyy1/chess-cs246",
+    },
+    {
+      title: "Cell Classifier",
+      image: "/images/cellclassification.png",
+      bulletPoints: [
+        "Developed a machine learning model with *TensorFlow* to classify diseased cells.",
+        "Implemented a *CNN* based on the EfficientNetB0 architecture, achieving *94%* test accuracy.",
+      ],
+      chips: [
+        <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <SiTensorflow className="mr-2 text-orange-200" /> TensorFlow
+        </span>,
+        <span className="bg-orange-600 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <SiJupyter className="mr-2 text-orange-300" /> Jupyter
+        </span>,
+      ],
+      link: "https://github.com/richardyzhu/ml-cell-classification",
+    },
+    {
+      title: "Quiztopia",
+      image: "/images/quiztopia.png",
+      bulletPoints: [
+        "Built a trivia game mobile application using *React Native*.",
+        "Used *AppWrite* to implement *JWT Authentication*.",
+        "Implemented a global leaderboard using *MongoDB*.",
+      ],
+      chips: [
+        <span className="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <TbBrandReactNative className="mr-2" /> React Native
+        </span>,
+        <span className="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <SiAppwrite className="mr-2 text-blue-200" /> AppWrite
+        </span>,
+      ],
+      link: "https://devpost.com/software/quiztopia",
+    },
+    {
+      title: "WLP4 Compiler",
+      image: "/images/compiler.jpg",
+      bulletPoints: [
+        "Developed a compiler for a language similar to *C++* as part of a *Compilers* course.",
+        "Used CFGs and bottom-up parsing to define syntax and generate MIPS assembly code.",
+      ],
+      chips: [
+        <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <SiCplusplus className="mr-2 text-blue-200" /> C++
+        </span>,
+      ],
+    },
+    {
+      title: "GridWorld RL",
+      image: "/images/gridworld.png",
+      bulletPoints: [
+        "Experimented with various *Reinforcement Learning* algorithms (Q-learning, SARSA, etc) on a GridWorld environment as part of an RL course.",
+        "Used *Matplotlib* for analysis.",
+      ],
+      chips: [
+        <span className="bg-yellow-400 text-black text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <FaPython className="mr-2" /> Python
+        </span>,
+        <span className="bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <FcScatterPlot className="mr-2 text-white" /> Matplotlib
+        </span>,
+      ],
+    },
+    {
+      title: "AWS Lambda Utilities",
+      image: "/images/notifier.jpg",
+      bulletPoints: [
+        "Built daily notifiers using *AWS Lambda* for class openings, menus, and weather.",
+        "Integrated *Twilio* for notifications and *EventBridge* for event-driven messaging.",
+      ],
+      chips: [
+        <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <FaAws className="mr-2 text-white" /> AWS
+        </span>,
+        <span className="bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <SiTwilio className="mr-2 text-white" /> Twilio
+        </span>,
+      ],
+    },
+    {
+      title: "Coming soon...",
+      image: "/images/wip.png",
+      bulletPoints: [],
+      chips: [],
+    },
+  ];
 
   return (
     <section className="w-full bg-gradient-to-b from-gray-900 to-gray-800 py-8 sm:py-16 rounded-2xl">
@@ -99,11 +225,11 @@ const ProjectsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {smallProjects.map((project, index) => (
             <SmallProjectCard key={index} {...project} />
           ))}
-        </div> */}
+        </div>
       </div>
     </section>
   );
