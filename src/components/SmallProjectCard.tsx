@@ -1,6 +1,6 @@
 "use client";
 import { MdOpenInNew } from "react-icons/md";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState, useRef, useEffect } from "react";
 
 interface SmallProjectCardProps {
   title: string;
@@ -17,6 +17,34 @@ const SmallProjectCard: React.FC<SmallProjectCardProps> = ({
   chips,
   link,
 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.25,
+        rootMargin: "50px",
+      },
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
   const renderBulletPoint = (point: string) => {
     const parts = point.split(/(\*[^*]+\*)/g);
     return parts.map((part, index) => {
@@ -32,7 +60,19 @@ const SmallProjectCard: React.FC<SmallProjectCardProps> = ({
   };
 
   return (
-    <div className="bg-gray-800 rounded-lg shadow-md border border-gray-700 overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-lg hover:scale-105 flex flex-col">
+    <div
+      ref={cardRef}
+      className={`
+        bg-gray-800 rounded-lg shadow-md border border-gray-700 
+        overflow-hidden flex flex-col
+        transform transition-all duration-700 ease-out
+        ${
+          isVisible
+            ? "opacity-100 translate-y-0 hover:shadow-lg hover:scale-105"
+            : "opacity-0 translate-y-[50px]"
+        }
+      `}
+    >
       <div className="relative">
         <img
           src={image}
@@ -46,7 +86,8 @@ const SmallProjectCard: React.FC<SmallProjectCardProps> = ({
           {link && (
             <button
               onClick={() => window.open(link, "_blank")}
-              className="bg-indigo-600 text-white font-semibold py-2 px-3 rounded-full transition duration-200 hover:bg-indigo-500 flex items-center space-x-2"
+              className="bg-indigo-600 text-white font-semibold py-2 px-3 rounded-full 
+                       transition duration-200 hover:bg-indigo-500 flex items-center space-x-2"
             >
               <MdOpenInNew />
             </button>

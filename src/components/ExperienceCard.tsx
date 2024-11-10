@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 
 interface ExperienceCardProps {
   company: string;
@@ -17,7 +17,35 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   bulletPoints,
   chips,
 }) => {
-  // TODO: move this to a utils file
+  // TODO: maybe extract this functionality ?
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.25,
+        rootMargin: "50px",
+      },
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
   const renderBulletPoint = (point: string) => {
     const parts = point.split(/(\*[^*]+\*)/g);
     return parts.map((part, index) => {
@@ -33,15 +61,27 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   };
 
   return (
-    // TODO: put the logo somewhere ?
-    <div className="bg-gradient-to-b from-gray-800 to-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out border border-gray-700">
+    <div
+      ref={cardRef}
+      className={`
+        bg-gradient-to-b from-gray-800 to-gray-900 
+        p-6 rounded-2xl shadow-lg
+        transform transition-all duration-700 ease-out
+        border border-gray-700
+        ${
+          isVisible
+            ? "opacity-100 translate-y-0 hover:scale-105 hover:shadow-2xl"
+            : "opacity-0 translate-y-[100px]"
+        }
+      `}
+    >
       <div className="flex justify-between items-center mb-2">
         <div className="text-xl font-semibold text-white">
           {company} - <span className="text-blue-400">{role}</span>
         </div>
         <div className="text-sm text-gray-400 hidden lg:block">
-          {date.map((item) => (
-            <div>{item}</div>
+          {date.map((item, index) => (
+            <div key={index}>{item}</div>
           ))}
         </div>
       </div>

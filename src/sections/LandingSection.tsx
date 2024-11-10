@@ -4,10 +4,18 @@ import React, { useEffect, useState } from "react";
 // import Typed from "react-typed";
 import LinksSection from "./LinksSection";
 
-const LandingSection = () => {
-  const [charIndex, setCharIndex] = useState(0);
+interface LandingSectionProps {
+  onTypingComplete: () => void;
+}
 
-  const texts: string[] = [
+const LandingSection: React.FC<LandingSectionProps> = ({
+  onTypingComplete,
+}) => {
+  const [charIndex, setCharIndex] = useState(0);
+  const [showCursor, setShowCursor] = useState(true);
+  const [showLinks, setShowLinks] = useState(false);
+
+  const texts = [
     "Hello, I'm ",
     "Richard Zhu",
     "A third-year student at the ",
@@ -19,8 +27,9 @@ const LandingSection = () => {
     "Jitto ",
     "and ",
     "Gelenk Networks",
-    ".",
+    ". ",
   ];
+  const totalLength = texts.reduce((acc, text) => acc + text.length, 0);
 
   const calculateCharIndex = (index: number) => {
     return texts[index].substring(
@@ -31,20 +40,54 @@ const LandingSection = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCharIndex(charIndex + 1);
-      console.log(charIndex);
-      clearInterval(intervalId);
-    }, 100);
+    const delay = charIndex > texts[0].length + texts[1].length ? 30 : 50;
+    const totalLength = texts.reduce((acc, text) => acc + text.length, 0);
 
-    return () => clearInterval(intervalId);
-  }, [charIndex]);
+    if (charIndex < totalLength) {
+      const intervalId = setInterval(() => {
+        setCharIndex(charIndex + 1);
+        clearInterval(intervalId);
+      }, delay);
+
+      return () => clearInterval(intervalId);
+    } else {
+      setShowLinks(true);
+      onTypingComplete();
+    }
+  }, [charIndex, texts]);
+
+  useEffect(() => {
+    if (window.innerWidth > 430) {
+      const cursorInterval = setInterval(() => {
+        setShowCursor((prev) => !prev);
+      }, 500);
+
+      return () => clearInterval(cursorInterval);
+    } else {
+      setShowCursor(false);
+    }
+  }, []);
+
+  const getCursorPosition = () => {
+    let totalChars = 0;
+    for (let i = 0; i < texts.length; i++) {
+      totalChars += texts[i].length;
+      if (charIndex <= totalChars) {
+        return i;
+      }
+    }
+    return texts.length - 1;
+  };
+
+  const cursor = showCursor ? "|" : "";
+  const cursorLine = getCursorPosition();
 
   return (
     <div className="text-center sm:text-left">
       <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-2 sm:mb-4">
         {calculateCharIndex(0)}
         <span className="text-blue-400">{calculateCharIndex(1)}</span>
+        {cursorLine <= 1 && cursor}
       </h1>
       <p className="text-md sm:text-xl md:text-2xl text-gray-300 mb-2 sm:mb-4">
         {calculateCharIndex(2)}
@@ -52,6 +95,7 @@ const LandingSection = () => {
         {calculateCharIndex(4)}
         <span className="text-green-400">{calculateCharIndex(5)}</span>
         {calculateCharIndex(6)}
+        {cursorLine > 1 && cursorLine <= 6 && cursor}
       </p>
       <p className="text-sm sm:text-lg md:text-xl text-gray-400 mb-4">
         {calculateCharIndex(7)}
@@ -59,10 +103,18 @@ const LandingSection = () => {
         {calculateCharIndex(9)}
         <span className="text-indigo-400">{calculateCharIndex(10)}</span>
         {calculateCharIndex(11)}
+        {cursorLine > 6 && cursor}
       </p>
 
       <div className="mt-6 sm:mt-12 flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center sm:justify-start">
-        <LinksSection />
+        <div
+          className={`transition-opacity duration-500 ${
+            showLinks ? "opacity-100" : "opacity-0"
+          }`}
+          aria-hidden={!showLinks}
+        >
+          <LinksSection />
+        </div>
       </div>
     </div>
   );
