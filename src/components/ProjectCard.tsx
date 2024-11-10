@@ -66,7 +66,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       ref={cardRef}
       className={`
         bg-gradient-to-b from-gray-800 to-gray-900 
-        rounded-2xl shadow-lg overflow-hidden
+        rounded-2xl shadow-lg overflow-hidden flex flex-col
         transform transition-all duration-700 ease-out
         border border-gray-700
         ${
@@ -80,8 +80,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
 
-      <div className="p-6">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
+      <div className="p-6 flex-grow">
+        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-center mb-4">
           <div>
             <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
             {awards && awards.length > 0 && (
@@ -98,7 +98,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                        transition duration-200 hover:bg-indigo-500 flex items-center space-x-2
                        mt-3 sm:mt-0"
             >
-              <span>View Project</span>
               <MdOpenInNew />
             </button>
           )}
@@ -111,10 +110,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </li>
           ))}
         </ul>
-
-        <div className="flex flex-wrap gap-3 justify-start items-center mt-4">
-          {chips && chips.map((chip, index) => <div key={index}>{chip}</div>)}
-        </div>
+      </div>
+      <div className="flex flex-wrap gap-3 justify-start items-center mt-3 px-4 pb-4">
+        {chips && chips.map((chip, index) => <div key={index}>{chip}</div>)}
       </div>
     </div>
   );
