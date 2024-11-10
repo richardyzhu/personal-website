@@ -32,7 +32,7 @@ const SmallProjectCard: React.FC<SmallProjectCardProps> = ({
   };
 
   return (
-    <div className="bg-gray-800 rounded-lg shadow-md border border-gray-700 overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-lg hover:scale-105">
+    <div className="bg-gray-800 rounded-lg shadow-md border border-gray-700 overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-lg hover:scale-105 flex flex-col">
       <div className="relative">
         <img
           src={image}
@@ -40,7 +40,7 @@ const SmallProjectCard: React.FC<SmallProjectCardProps> = ({
           className="w-full h-40 object-cover rounded-t-lg"
         />
       </div>
-      <div className="py-4 px-6 ">
+      <div className="py-4 px-6 flex-grow">
         <div className="flex justify-between items-center">
           <h3 className="text-xl font-bold text-white mb-1">{title}</h3>
           {link && (
@@ -60,9 +60,9 @@ const SmallProjectCard: React.FC<SmallProjectCardProps> = ({
             </li>
           ))}
         </ul>
-        <div className="flex flex-wrap gap-2 justify-start items-center mt-3">
-          {chips && chips.map((chip, index) => <div key={index}>{chip}</div>)}
-        </div>
+      </div>
+      <div className="flex flex-wrap gap-2 justify-start items-center mt-3 px-4 pb-4">
+        {chips && chips.map((chip, index) => <div key={index}>{chip}</div>)}
       </div>
     </div>
   );
