@@ -16,6 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!showContent) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
