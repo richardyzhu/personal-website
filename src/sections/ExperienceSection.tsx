@@ -2,10 +2,34 @@ import React from "react";
 import ExperienceCard from "../components/ExperienceCard";
 import { FaReact, FaAws, FaNode } from "react-icons/fa";
 import { RiNextjsFill, RiVuejsFill } from "react-icons/ri";
-import { SiSelenium, SiRedux, SiApachecouchdb } from "react-icons/si";
+import {
+  SiSelenium,
+  SiRedux,
+  SiApachecouchdb,
+  SiPytorch,
+  SiCplusplus,
+} from "react-icons/si";
 
 const ExperienceSection: React.FC = () => {
   const experiences = [
+    {
+      company: "University of Waterloo",
+      location: "Waterloo, Canada",
+      date: ["Jan 2025 - Present"],
+      role: "Undergraduate Research Assistant",
+      bulletPoints: [
+        "Did research on *ML* applications in image compression and super-resolution under Prof. Zhou Wang.",
+        "Used *PyTorch* to evaluate and benchmark state-of-the-art ML models on medical imaging datasets.",
+      ],
+      chips: [
+        <span className="bg-[#EE4C2C] text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <SiPytorch className="mr-2" /> PyTorch
+        </span>,
+        <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <SiCplusplus className="mr-2 text-blue-200" /> C++
+        </span>,
+      ],
+    },
     {
       company: "Jitto",
       date: ["Jan 2024 - May 2024", "Sep 2024 - Dec 2024"],

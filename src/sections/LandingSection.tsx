@@ -29,7 +29,6 @@ const LandingSection: React.FC<LandingSectionProps> = ({
     "Gelenk Networks",
     ". ",
   ];
-  const totalLength = texts.reduce((acc, text) => acc + text.length, 0);
 
   const calculateCharIndex = (index: number) => {
     return texts[index].substring(
@@ -40,8 +39,22 @@ const LandingSection: React.FC<LandingSectionProps> = ({
   };
 
   useEffect(() => {
-    const delay = charIndex > texts[0].length + texts[1].length ? 30 : 50;
+    const firstLineCutoff = texts[0].length + texts[1].length;
+    const secondLineCutoff =
+      texts[0].length +
+      texts[1].length +
+      texts[2].length +
+      texts[3].length +
+      texts[4].length +
+      texts[5].length +
+      texts[6].length;
+
+    let delay = charIndex > firstLineCutoff ? 30 : 50;
     const totalLength = texts.reduce((acc, text) => acc + text.length, 0);
+
+    if (charIndex == firstLineCutoff || charIndex == secondLineCutoff) {
+      delay = 300;
+    }
 
     if (charIndex < totalLength) {
       const intervalId = setInterval(() => {

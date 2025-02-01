@@ -9,7 +9,7 @@ import { IoLogoJavascript } from "react-icons/io";
 import { FaPython } from "react-icons/fa";
 import { SiMicrosoftazure } from "react-icons/si";
 import { SiCplusplus } from "react-icons/si";
-import { SiJupyter } from "react-icons/si";
+import { SiJupyter, SiPytorch, SiFlask } from "react-icons/si";
 import { SiAppwrite } from "react-icons/si";
 import { FcScatterPlot } from "react-icons/fc";
 import { FaAws } from "react-icons/fa";
@@ -17,6 +17,28 @@ import { SiTwilio } from "react-icons/si";
 
 const ProjectsSection: React.FC = () => {
   const bigProjects = [
+    {
+      title: "AI 2048 Player",
+      image: "/images/ai2048.jfif",
+      bulletPoints: [
+        "Built AI models using *PyTorch* to play the game 2048, experimenting with algorithms like *DQN* and *NEAT*.",
+        "Deployed to a web application using *Flask* and *React*, allowing users to watch the AI play in real time.",
+        "Implemented real-time communication using *WebSockets* to synchronize gameplay updates with the frontend.",
+      ],
+      chips: [
+        <span className="bg-[#EE4C2C] text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <SiPytorch className="mr-2" /> PyTorch
+        </span>,
+        <span className="bg-black text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <RiNextjsFill className="mr-2" /> Next.js
+        </span>,
+        <span className="bg-[#003545] text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+          <SiFlask className="mr-2" /> Flask
+        </span>,
+      ],
+      awards: [],
+      link: "https://ai-2048-player.vercel.app/",
+    },
     {
       title: "MotiSpectra",
       image: "/images/motispectra.png",
@@ -72,13 +94,16 @@ const ProjectsSection: React.FC = () => {
       awards: ["1st Place Noibu Challenge at uOttaHack V"],
       link: "https://devpost.com/software/bob-gj5h29",
     },
+  ];
+
+  const smallProjects = [
     {
       title: "QuizCaster",
       image: "/images/quizcaster.png",
       bulletPoints: [
-        "Created a dynamic web application with *Next.js* and OpenAI APIs, capable of generating multiple-choice questions from various content sources, including PDFs, Markdown files, websites, and YouTube videos.",
-        "Trained a *Naïve-Bayes* machine learning model on *7.8 million* lines of text from Wikipedia to format text.",
-        "Implemented *caching* by storing generated quizzes, each assigned a unique UUID, in a *MongoDB* database.",
+        "Created a dynamic quiz app with *Next.js* and OpenAI APIs.",
+        "Trained a *Naïve-Bayes* model to format text with Wikipedia data.",
+        "Implement *caching* using a *MongoDB* database.",
       ],
       chips: [
         <span className="bg-black text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
@@ -90,9 +115,6 @@ const ProjectsSection: React.FC = () => {
       ],
       link: "https://devpost.com/software/quizcaster",
     },
-  ];
-
-  const smallProjects = [
     {
       title: "GPT George",
       image: "/images/gptgeorge.png",
